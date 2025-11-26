@@ -1,0 +1,83 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtcm5gftx5qb3"]
+
+[ext_resource type="PackedScene" uid="uid://bpecia17xgykd" path="res://addons/base_button/base_button.tscn" id="1_tqpfn"]
+[ext_resource type="Script" uid="uid://v5y7slqc7hfb" path="res://addons/modded_settings/settings.gd" id="2_366f7"]
+
+[node name="settings" unique_id=1770953425 instance=ExtResource("1_tqpfn")]
+process_mode = 3
+offset_right = 30.0
+offset_bottom = 31.0
+text = "⚙️"
+
+[node name="Settings" type="CanvasLayer" parent="." index="1" unique_id=1023945446]
+script = ExtResource("2_366f7")
+
+[node name="PauseDisplay" type="PanelContainer" parent="Settings" index="0" unique_id=89996534]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(128, 260)
+anchors_preset = -1
+anchor_left = 0.4
+anchor_top = 0.1
+anchor_right = 0.6
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings/PauseDisplay" index="0" unique_id=410014977]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Settings/PauseDisplay/VBoxContainer" index="0" unique_id=1709775745]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center][b]Options"
+fit_content = true
+scroll_active = false
+
+[node name="VSeparator" type="VSeparator" parent="Settings/PauseDisplay/VBoxContainer" index="1" unique_id=1690471501]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+
+[node name="controls" parent="Settings/PauseDisplay/VBoxContainer" index="2" unique_id=1893093386 instance=ExtResource("1_tqpfn")]
+layout_mode = 2
+text = "Controls"
+
+[node name="volume" parent="Settings/PauseDisplay/VBoxContainer" index="3" unique_id=1772219789 instance=ExtResource("1_tqpfn")]
+layout_mode = 2
+text = "Volume"
+
+[node name="graphics" parent="Settings/PauseDisplay/VBoxContainer" index="4" unique_id=393061614 instance=ExtResource("1_tqpfn")]
+layout_mode = 2
+text = "Graphics"
+
+[node name="exit" parent="Settings/PauseDisplay/VBoxContainer" index="5" unique_id=1024456049 instance=ExtResource("1_tqpfn")]
+layout_mode = 2
+text = "Exit"
+
+[node name="close" parent="Settings/PauseDisplay/VBoxContainer" index="6" unique_id=765688212 instance=ExtResource("1_tqpfn")]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Close"
+
+[node name="back" parent="Settings" index="1" unique_id=1099864388 instance=ExtResource("1_tqpfn")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -31.0
+offset_right = 40.0
+offset_bottom = 0.0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back"
+
+[connection signal="pressed" from="." to="Settings" method="_on_settings_pressed"]
+[connection signal="pressed" from="Settings/PauseDisplay/VBoxContainer/controls" to="Settings" method="_on_controls_pressed"]
+[connection signal="pressed" from="Settings/PauseDisplay/VBoxContainer/volume" to="Settings" method="_on_volume_pressed"]
+[connection signal="pressed" from="Settings/PauseDisplay/VBoxContainer/close" to="Settings" method="_on_close_pressed"]
+[connection signal="pressed" from="Settings/back" to="Settings" method="_on_back_pressed"]

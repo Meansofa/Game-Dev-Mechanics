@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpecia17xgykd"]
+
+[ext_resource type="AudioStream" uid="uid://cyfa1jrf5xwvt" path="res://addons/base_button/click.wav" id="1_asr3w"]
+
+[sub_resource type="GDScript" id="GDScript_blluw"]
+resource_name = "sfx_button"
+script/source = "extends AudioStreamPlayer2D
+
+func _on_base_button_pressed() -> void:
+	play()
+"
+
+[node name="baseButton2" type="Button" unique_id=1770953425]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "ಠ_ಠ"
+
+[node name="clickSFX" type="AudioStreamPlayer2D" parent="." unique_id=1419007476]
+stream = ExtResource("1_asr3w")
+bus = &"SFX"
+script = SubResource("GDScript_blluw")
+
+[connection signal="pressed" from="." to="clickSFX" method="_on_base_button_pressed"]

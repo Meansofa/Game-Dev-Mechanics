@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://521s4jxqotxs"]
+
+[ext_resource type="Script" uid="uid://bryrd3mj31kw1" path="res://addons/modded_settings/input_remap.gd" id="1_3pmue"]
+
+[node name="InputRemap" type="HBoxContainer" unique_id=1669360234]
+alignment = 1
+script = ExtResource("1_3pmue")
+
+[node name="action" type="RichTextLabel" parent="." unique_id=1963003106]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "Move Left"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="key" type="Button" parent="." unique_id=167172844]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+toggle_mode = true
+text = "A"
+
+[connection signal="toggled" from="key" to="." method="_on_key_toggled"]

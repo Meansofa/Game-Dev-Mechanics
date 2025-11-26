@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkdb2mcsj7lu"]
+
+[sub_resource type="Gradient" id="Gradient_421uh"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 0.30980393)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_si524"]
+gradient = SubResource("Gradient_421uh")
+width = 128
+height = 16
+
+[sub_resource type="Gradient" id="Gradient_btenh"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0.00931677, 1)
+colors = PackedColorArray(0, 0, 0, 0.29803923, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wocmq"]
+gradient = SubResource("Gradient_btenh")
+width = 128
+height = 16
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 0.3)
+
+[sub_resource type="Gradient" id="Gradient_giula"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gl0ct"]
+gradient = SubResource("Gradient_giula")
+width = 128
+height = 16
+
+[node name="HealthBar" type="TextureProgressBar" unique_id=1441904658]
+offset_right = 128.0
+offset_bottom = 16.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+value = 50.0
+texture_under = SubResource("GradientTexture2D_si524")
+texture_over = SubResource("GradientTexture2D_wocmq")
+texture_progress = SubResource("GradientTexture2D_gl0ct")
