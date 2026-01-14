@@ -20,10 +20,14 @@ func _physics_process(delta):
 	#For the update function of the state, which should work same as _physics_process or _process
 	if current_state: #just so it is not null incase it is
 		current_state.update(self, delta) #for the current state update it
-	
+
 	#DASH
 	if Input.is_action_just_pressed("dash") and MovementUtility.can_dash:
 		MovementUtility.dash_utility(self)
+	elif MovementUtility.is_dashing: #When dashing there should be no gravity
+		velocity.y = 0
+	elif not is_on_floor():
+		velocity += get_gravity() * delta
 
 #Called by the current state if it wants to change state by: owner.change_state(state_name.new())
 func change_state(new_state: State):

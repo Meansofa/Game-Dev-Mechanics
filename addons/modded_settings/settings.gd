@@ -28,6 +28,7 @@ func _input(event: InputEvent) -> void:
 
 func _on_settings_pressed() -> void:
 	show_pause_menu()
+	get_parent().release_focus() #Assuming the parent is the settings button, get rid of focus after pressing since when pressing space, it activates if it's on focuss
 
 func _on_close_pressed() -> void:
 	toggle_pause_menu_visibility()

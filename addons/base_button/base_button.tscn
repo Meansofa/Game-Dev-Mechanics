@@ -8,6 +8,7 @@ script/source = "extends AudioStreamPlayer2D
 
 func _on_base_button_pressed() -> void:
 	play()
+
 "
 
 [node name="baseButton2" type="Button" unique_id=1770953425]

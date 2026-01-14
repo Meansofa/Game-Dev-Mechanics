@@ -1,0 +1,75 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqabn7rel530k"]
+
+[ext_resource type="Script" uid="uid://cf6kxxxv4gk7m" path="res://addons/Multiplayer/MultiplayerManager/connection_manager.gd" id="1_k50gb"]
+
+[node name="Multiplayer" type="Node2D" unique_id=146174166]
+
+[node name="ConnectionManager" type="Node" parent="." unique_id=1380940186]
+script = ExtResource("1_k50gb")
+
+[node name="join" type="Button" parent="." unique_id=643212124]
+offset_left = 379.0
+offset_top = 123.0
+offset_right = 417.0
+offset_bottom = 154.0
+text = "Join"
+
+[node name="JoinID" type="LineEdit" parent="join" unique_id=1510563465]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -39.0
+offset_top = 37.0
+offset_right = 89.0
+offset_bottom = 68.0
+placeholder_text = "Input Room ID"
+
+[node name="host" type="Button" parent="." unique_id=1411313715]
+offset_left = 102.0
+offset_top = 129.0
+offset_right = 146.0
+offset_bottom = 160.0
+text = "Host"
+
+[node name="HostID" type="Label" parent="host" unique_id=822896406]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -68.0
+offset_top = 40.0
+offset_right = 147.0
+offset_bottom = 63.0
+text = "Connecting........."
+horizontal_alignment = 1
+
+[node name="Messageboard" type="Panel" parent="." unique_id=632111]
+offset_left = 180.0
+offset_top = 17.0
+offset_right = 360.0
+offset_bottom = 97.0
+
+[node name="TextChatPanel" type="ScrollContainer" parent="Messageboard" unique_id=229254547]
+layout_mode = 0
+offset_right = 179.0
+offset_bottom = 81.0
+horizontal_scroll_mode = 0
+
+[node name="Margin" type="MarginContainer" parent="Messageboard/TextChatPanel" unique_id=41383306]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="Messages" type="RichTextLabel" parent="Messageboard/TextChatPanel/Margin" unique_id=20356396]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = ": this is the beginning"
+fit_content = true
+
+[connection signal="pressed" from="join" to="ConnectionManager" method="_on_join_pressed"]
+[connection signal="pressed" from="host" to="ConnectionManager" method="_on_host_pressed"]

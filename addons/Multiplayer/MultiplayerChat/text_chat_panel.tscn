@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ccysytqhgyncp"]
+
+[node name="TextChatPanel" type="ScrollContainer" unique_id=229254547]
+offset_left = 16.0
+offset_top = 57.0
+offset_right = 195.0
+offset_bottom = 138.0
+horizontal_scroll_mode = 0
+
+[node name="PanelContainer" type="MarginContainer" parent="." unique_id=41383306]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer" unique_id=20356396]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = ": this is the beginning"
+fit_content = true

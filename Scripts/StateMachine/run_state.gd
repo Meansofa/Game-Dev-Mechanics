@@ -1,7 +1,7 @@
 extends State
 class_name RunState
 
-var coyote_time := 0.3
+var coyote_time := 0.2
 
 func enter(_owner: CharacterPlatformer) -> void:
 	state_name = "Run"
@@ -14,7 +14,6 @@ func update(owner, delta):
 		owner.change_state(IdleState.new())
 	
 	if not owner.is_on_floor():
-		owner.velocity += owner.get_gravity() * delta
 		if Input.is_action_just_pressed("jump") and can_coyote_jump:
 			owner.change_state(JumpState.new())
 	elif owner.is_on_floor() and Input.is_action_pressed("jump"):

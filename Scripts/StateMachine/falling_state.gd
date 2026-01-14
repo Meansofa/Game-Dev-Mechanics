@@ -9,7 +9,8 @@ func enter(_owner: CharacterPlatformer) -> void:
 
 func update(owner: CharacterPlatformer, delta: float) -> void:
 	if not owner.is_on_floor(): #If in the air
-		owner.velocity += owner.get_gravity() * delta
+		#Since the player already has this function below
+		#owner.velocity += owner.get_gravity() * delta
 		
 		MovementUtility.horizontal_movement_utility(owner, delta, fps) #Allows horizontal movement
 	else:

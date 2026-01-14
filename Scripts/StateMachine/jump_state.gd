@@ -19,8 +19,6 @@ func update(owner: CharacterPlatformer, delta: float) -> void:
 		owner.velocity.y = owner.JUMP_VELOCITY
 		jump_count += 1 #corresponding jumps 
 	
-	owner.velocity += owner.get_gravity() * delta
-	
 	MovementUtility.horizontal_movement_utility(owner, delta, fps) #Allows horizontal movement
 	
 	owner.move_and_slide()

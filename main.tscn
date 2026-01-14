@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=4 uid="uid://bta1d27xcsaac"]
+[gd_scene load_steps=11 format=4 uid="uid://bta1d27xcsaac"]
 
 [ext_resource type="Texture2D" uid="uid://dk2874y5scwfs" path="res://Art/brackeys_platformer_assets/sprites/knight.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://ddp3dvd7x1ty5" path="res://Scripts/StateMachine/player.gd" id="2_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://c6ev8rgf606e8" path="res://Art/brackeys_platformer_assets/sprites/world_tileset.png" id="2_h2yge"]
 [ext_resource type="PackedScene" uid="uid://dtcm5gftx5qb3" path="res://addons/modded_settings/settings.tscn" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://bcnrjxjhqst4i" path="res://addons/modded_menu/MainMenu.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dmifug6c7iqfr" path="res://3dTest.tscn" id="6_7mycd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("2_h2yge")
@@ -170,6 +171,9 @@ sources/0 = SubResource("TileSetAtlasSource_1bvp3")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(11, 16)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_7mycd"]
+viewport_path = NodePath("3dCamera")
+
 [node name="Main" type="Node2D" unique_id=1830515322]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=480957107]
@@ -201,9 +205,9 @@ offset_bottom = -13.0
 text = "Walking"
 horizontal_alignment = 1
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=634338107]
+[node name="UI" type="CanvasLayer" parent="." unique_id=634338107]
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=926768945]
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=926768945]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -217,10 +221,20 @@ theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 metadata/_edit_use_anchors_ = true
 
-[node name="settings" parent="CanvasLayer/MarginContainer" unique_id=1770953425 instance=ExtResource("4_1bvp3")]
+[node name="settings" parent="UI/MarginContainer" unique_id=1770953425 instance=ExtResource("4_1bvp3")]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="MainMenu" parent="CanvasLayer" unique_id=1054525637 instance=ExtResource("5_lquwl")]
+[node name="MainMenu" parent="UI" unique_id=1054525637 instance=ExtResource("5_lquwl")]
 visible = false
+
+[node name="3Din2D" type="TextureRect" parent="UI" unique_id=781290111]
+offset_right = 512.0
+offset_bottom = 512.0
+texture = SubResource("ViewportTexture_7mycd")
+
+[node name="3dCamera" type="SubViewport" parent="." unique_id=1802111444]
+transparent_bg = true
+
+[node name="Node3D" parent="3dCamera" unique_id=1729932152 instance=ExtResource("6_7mycd")]
