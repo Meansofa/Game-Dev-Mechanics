@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqabn7rel530k"]
+[gd_scene load_steps=4 format=3 uid="uid://dqabn7rel530k"]
 
 [ext_resource type="Script" uid="uid://cf6kxxxv4gk7m" path="res://addons/Multiplayer/MultiplayerManager/connection_manager.gd" id="1_k50gb"]
+[ext_resource type="PackedScene" uid="uid://bpecia17xgykd" path="res://addons/base_button/base_button.tscn" id="2_bcxgr"]
+[ext_resource type="Texture2D" uid="uid://dtd6ru0ga5e3x" path="res://icon.svg" id="3_axoth"]
 
 [node name="Multiplayer" type="Node2D" unique_id=146174166]
 
@@ -59,7 +61,7 @@ size_flags_vertical = 3
 theme_override_constants/margin_left = 6
 theme_override_constants/margin_top = 6
 theme_override_constants/margin_right = 6
-theme_override_constants/margin_bottom = 6
+theme_override_constants/margin_bottom = 34
 
 [node name="Messages" type="RichTextLabel" parent="Messageboard/TextChatPanel/Margin" unique_id=20356396]
 unique_name_in_owner = true
@@ -71,5 +73,28 @@ bbcode_enabled = true
 text = ": this is the beginning"
 fit_content = true
 
+[node name="SendMessage" type="LineEdit" parent="Messageboard" unique_id=712865649]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 10.0
+offset_top = 54.0
+offset_right = 130.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 8
+placeholder_text = "Send Message"
+
+[node name="SendButton" parent="Messageboard" unique_id=1770953425 instance=ExtResource("2_bcxgr")]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 47.0
+offset_right = 166.0
+offset_bottom = 77.0
+text = ""
+icon = ExtResource("3_axoth")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="pressed" from="join" to="ConnectionManager" method="_on_join_pressed"]
 [connection signal="pressed" from="host" to="ConnectionManager" method="_on_host_pressed"]
+[connection signal="pressed" from="Messageboard/SendButton" to="ConnectionManager" method="_on_send_button_pressed"]
